@@ -1,17 +1,26 @@
 ---
-title: 读书笔记和学习过程
+title: NOTE OF LEANRING & EXPERIENCE & BOOKS
 ---
 
-## “人有人的用处”
+# 笔记本📒
+---
+#### - PERSONAL KNOWLEDGE BASE
+#### - LEANRING🎓
+#### - EXPERIENCE💡
+#### - BOOKS📖
+#### - 纯私用，熵值极高，遂无法对任何站内信息负责😭
 
-如果打开这个网页，一般说明：
-
-是的，我又看新书、或又上新课了；在这专门记录读书笔记和学习过程；以及本站纯纯私人用途。
 
 
+---
 
-
-> ### "白色的魔术师在他的墓穴中玩弄他的蛇 *——特拉克尔《赞歌》* "
+  > __"白色的魔术师在他的墓穴中玩弄他的蛇。"__
+> *——特拉克尔《赞歌》*
+>
 关于什么是“语言的本质”？海德格尔60年代在《在通向语言的途中》中将此诗句用作例句来探讨诗歌中的语言...
-> ### "Colorless green ideas sleep furiously. *——Noam Chomsky*"
+
+  > __"Colorless green ideas sleep furiously."__
+> *——Noam Chomsky*
+> 
 乔姆斯基名句，浅代表现代人工智能语言模型初期人们关于语法规则的多种定义（Markov Processe、Context-free
+
