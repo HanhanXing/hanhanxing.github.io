@@ -1,1 +1,34 @@
+# 网站基本信息
+title: Hanhan's knowledgebase
+description: A private blog built with Jekyll
+ # 设置你的博客在 GitHub Pages 上的子路径，如果有的话
+url: "https://hanhanxing.github.io/" # 你的 GitHub Pages 网址
+
+# 主题
 theme: minima
+
+# Markdown 配置
+markdown: kramdown
+
+# 扩展插件（如果需要）
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 排除项
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle
+  - vendor/cache
+  - vendor/gems
+  - vendor/ruby
+
+# 导航栏
+# 布局配置（可选）
+
+# 作者信息（可选）
+author:
+  name: "NPC毁灭者"
+  email: "zhenhanxing@outlook.com"
