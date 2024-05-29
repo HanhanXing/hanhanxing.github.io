@@ -36,7 +36,10 @@
 ehthumbs.db
 Thumbs.db
 
-
 #本地的Jekyll内容
 _site/
 .jekyll-cache/
+
+#本地的gemfile内容
+Gemfile
+Gemfile.lock
