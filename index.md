@@ -24,3 +24,4 @@ title: NOTE OF LEANRING & EXPERIENCE & BOOKS
 > 
 乔姆斯基名句，浅代表现代人工智能语言模型初期人们关于语法规则的多种定义（Markov Processe、Context-free
 
+[`POST`]({% post_url 2024-05-25-人与科技的未来发展形势讨论 %})  
