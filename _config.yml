@@ -1,11 +1,21 @@
 # 网站基本信息
-title: Hanhan's knowledgebase
-description: A private blog built with Jekyll
- # 设置你的博客在 GitHub Pages 上的子路径，如果有的话
+title: 🧀 汗汗的芝士库
+
+description: >
+  This is Hanhan's knowledgebase, a blog built with Jekyll. 
+  Keeps notes of learning, experience & books. 
+  Private use only ⚠️ , contain high-entropy information, thus cannot be held responsible for any information on the site. 
+
+# 设置你的博客在 GitHub Pages 上的子路径，如果有的话
 url: "https://hanhanxing.github.io/" # 你的 GitHub Pages 网址
 
 # 主题
+
+# 如果直接克隆官方Minima 仓库到本地来构建的，就直接用这个方法
 theme: minima
+# 如果不克隆minima仓库到本地，但还希望在 GitHub Pages 上使用最新版本的 Minima，请使用以下设置
+#（备注：其实无论本地minima版本新旧，gh pages都会强制使用特定版本的minima，所以remote_theme这玩意可能没什么意义）
+# remote_theme: jekyll/minima
 
 # Markdown 配置
 markdown: kramdown
@@ -15,8 +25,41 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# 主题特定设置
+
+# 页眉
+# 如果想在页眉（header）中链接特定页面（specific pages） use this and add the path to the pages
+# 它们会按照书写的顺序显示
+header_pages:
+  - all_posts.md
+  - about.md
+  
+
+# 导航栏
+# 布局配置（可选）
+#nav: 
+#  - home: /
+#  - about: /about/
+#  - post: /all_posts/
+
+# 如果想在首页（index）显示摘要（show_excerpts），把下面这个设置为 true 。
+# gh展示页默认是show_excerpts: false
+show_excerpts: true
+
+# Minima specific settings, which are only available from Minima 3.0 onward.
+minima:
+  # Minima skin selection.
+  # Available skins are:
+  # classic	           Default, light color scheme.
+  # dark	             Dark variant of the classic skin.
+  # auto	             Adaptive skin based on the default classic and dark skins.
+  # solarized-light	   Light variant of solarized color scheme.
+  # solarized-dark	   Dark variant of solarized color scheme.
+  # solarized	         Adaptive skin for solarized color scheme skins.
+  skin: auto
+
 # 排除项
-exclude:
+exclude: 
   - Gemfile
   - Gemfile.lock
   - node_modules
@@ -24,11 +67,9 @@ exclude:
   - vendor/cache
   - vendor/gems
   - vendor/ruby
-
-# 导航栏
-# 布局配置（可选）
+  - minima
 
 # 作者信息（可选）
 author:
-  name: "NPC毁灭者"
-  email: "zhenhanxing@outlook.com"
+  name: NPC毁灭者
+  email: zhenhanxing@outlook.com
