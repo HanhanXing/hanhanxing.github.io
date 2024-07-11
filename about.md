@@ -1,8 +1,12 @@
 ---
-layout: base
+layout: page
 title: 🪭 关于
 permalink: /about/
 ---
+<style>
+.post-title {display: none;}
+</style>
+<div style="margin-top: 100px;"></div>
 
 ## **关于 🧠 知识库 & 📒 笔记本**  
 ABOUT THE KNOWLEDGE BASE & THE NOTEBOOK

@@ -1,12 +1,16 @@
 ---
-layout: base
+layout: page
 title: 📝 全部笔记
 permalink: /all_posts/
 # show_excerpts: true
 ---
-<div style="margin-top: 50px;"></div>
+<style>
+.post-title {display: none;}
+</style>
+<div style="margin-top: 100px;"></div>
+
 ## **📝 全部笔记**
-<div style="margin-top: 50px;"></div>
+<div style="margin-top: 100px;"></div>
 <!-- All Posts Section -->
 <ul class="post-list">
   {% for post in site.posts %}
