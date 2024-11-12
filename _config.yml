@@ -32,6 +32,7 @@ plugins:
 # 它们会按照书写的顺序显示
 header_pages:
   - all_posts.md
+  - categories.md
   - about.md
   
 
@@ -73,3 +74,8 @@ exclude:
 author:
   name: NPC毁灭者
   email: zhenhanxing@outlook.com
+
+# 2024-11-12 研究category的事情
+# if you want your post links to be /category/title/ or /tag/title/ 
+# then you can do that in _config.yml file by using this line
+permalink: /:categories/:title/
