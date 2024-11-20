@@ -34,7 +34,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-spaceship # 新增的插件，updated in 24-11-20
+  # - jekyll-spaceship # 新增的插件，updated in 24-11-20
   - jekyll-remote-theme #也许是为了加载remote_theme新增的插件，updated in 24-11-20
   # - jekyll-sitemap #没有生成sitemap的需要，updated in 24-11-20
   # - jekyll-paginate # 没有paginate（分页）的需要（吧），updated in 24-11-20
@@ -91,6 +91,8 @@ exclude:
   - vendor/gems
   - vendor/ruby
   - minima
+  # 忽略all_posts看看，updated in 24-11-20
+  - all_posts.md
 
 
 
