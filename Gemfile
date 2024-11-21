@@ -23,7 +23,7 @@ gem "jekyll-spaceship" # ，update in 24-11-20
 
 # 各种源里只有最新2.5.1版本的minima，要么remot-theme，要么就直接克隆minima仓库到本地来用
 # 使用本地路径中的 minima 主题
-gem 'minima', path: './minima'
+# gem 'minima', path: './minima' (# ，update in 24-11-20
 
 # 添加 webrick 以避免 LoadError
 gem 'webrick', '~> 1.7'
