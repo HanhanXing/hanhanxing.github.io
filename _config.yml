@@ -25,7 +25,9 @@ url: "https://hanhanxing.github.io/" # 你的 GitHub Pages 网址
 # theme: minima
 # 如果不克隆minima仓库到本地，但还希望在 GitHub Pages 上使用最新版本的 Minima，请使用以下设置
 #（备注：其实无论本地minima版本新旧，gh pages都会强制使用特定版本的minima，所以remote_theme这玩意可能没什么意义）
-remote_theme: jeffreytse/jekyll-theme-yat # 原来的主题是 jekyll/minima 
+# remote_theme: jeffreytse/jekyll-theme-yat # 原来的主题是 jekyll/minima 
+theme: jekyll-theme-yat
+# remote_theme: null
 
 # Markdown 配置
 markdown: kramdown
@@ -34,10 +36,10 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  # - jekyll-spaceship # 新增的插件，updated in 24-11-20
-  - jekyll-remote-theme #也许是为了加载remote_theme新增的插件，updated in 24-11-20
-  # - jekyll-sitemap #没有生成sitemap的需要，updated in 24-11-20
-  # - jekyll-paginate # 没有paginate（分页）的需要（吧），updated in 24-11-20
+  - jekyll-spaceship # 新增的插件，updated in 24-11-20
+  # - jekyll-remote-theme #也许是为了加载remote_theme新增的插件，updated in 24-11-20
+  - jekyll-sitemap #没有生成sitemap的需要，updated in 24-11-20
+  - jekyll-paginate # 没有paginate（分页）的需要（吧），updated in 24-11-20
 
 
 # 主题特定设置
@@ -91,6 +93,9 @@ exclude:
   - vendor/gems
   - vendor/ruby
   - minima
+  - jekyll-theme-yat
+  - minima/_posts
+  - jekyll-theme-yat/_posts
 
 
 

@@ -16,19 +16,23 @@ gem "kramdown-parser-gfm" # if ENV["JEKYLL_VERSION"] == "~> 3.9"
 gem "jekyll-feed", "~> 0.17"
 gem "jekyll-seo-tag", "~> 2.8"
 # 新添加的依赖 - 为了更改主题，update in 24-11-20
-gem "jekyll-sitemap", "~> 1.4" # ，update in 24-11-20
-gem "jekyll-paginate" # ，update in 24-11-20
-gem "jekyll-spaceship" # ，update in 24-11-20
+# gem "jekyll-sitemap", "~> 1.4" # ，update in 24-11-20
+# gem "jekyll-paginate" # ，update in 24-11-20
+# gem "jekyll-spaceship" # ，update in 24-11-20
 
 # 明确theme主题使用的路径：minima（3.0onward就用本地的，因为gh pages上是2.5老版本；如果其他主题的话再另说……）
 # 各种源里只有最新2.5.1版本的minima，要么remot-theme，要么就直接克隆minima仓库到本地来用
 # 1. 这里使用本地路径中的 minima 主题：
 # gem 'minima', path: './minima' (# ，update in 24-11-20
 # 2. 这里使用remote_theme，先把jekyll-remote-theme插件放上（？
-gem "jekyll-remote-theme", "~> 0.4.3" # ，update in 24-11-20
+# gem "jekyll-remote-theme", "~> 0.4.3" # ，update in 24-11-20
 # 2.1. 这里用remote theme的时候，gh pages默认的sass-converter版本是旧的，是不是这里也要统一一下本地的？还是说指定一个新版本给线上的？
 # gem "jekyll-sass-converter", "~> 1.5.2" 这个不得行哈
-gem "jekyll-sass-converter", "~> 3.0"
+gem "jekyll-sass-converter", "~> 3.0" 
+#这个也不得行
+gem 'jekyll-theme-yat', path: './jekyll-theme-yat'
+
+# update in 24-11-20
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem，update in 24-11-20
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby] #，update in 24-11-20
