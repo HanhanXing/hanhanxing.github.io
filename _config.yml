@@ -22,24 +22,30 @@ url: "https://hanhanxing.github.io/" # 你的 GitHub Pages 网址
 # 主题
 
 # 如果直接克隆官方Minima 仓库到本地来构建的，就直接用这个方法
-# theme: minima
+theme: minima
 # 如果不克隆minima仓库到本地，但还希望在 GitHub Pages 上使用最新版本的 Minima，请使用以下设置
 #（备注：其实无论本地minima版本新旧，gh pages都会强制使用特定版本的minima，所以remote_theme这玩意可能没什么意义）
 # remote_theme: jeffreytse/jekyll-theme-yat # 原来的主题是 jekyll/minima 
-theme: jekyll-theme-yat
+# theme: jekyll-theme-yat
 # remote_theme: null
+
 
 # Markdown 配置
 markdown: kramdown
 
+
 # 扩展插件（如果需要）
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-spaceship # 新增的插件，updated in 24-11-20
-  # - jekyll-remote-theme #也许是为了加载remote_theme新增的插件，updated in 24-11-20
-  - jekyll-sitemap #没有生成sitemap的需要，updated in 24-11-20
-  - jekyll-paginate # 没有paginate（分页）的需要（吧），updated in 24-11-20
+  - jekyll-feed #生成站点 RSS 或 Atom 提要
+  - jekyll-seo-tag #为站点生成 SEO 元数据
+  - jekyll-commonmark-ghpages #使用 CommonMark 渲染 Markdown，比默认的 kramdown 更现代
+  - jekyll-paginate #为博客生成分页功能
+  - jekyll-relative-links #解析和修正相对链接
+  - jekyll-sass-converter #将 SASS/SCSS 文件转换为 CSS
+  - jekyll-sitemap #生成站点的 sitemap（站点地图）。必要性：建议安装，有助于搜索引擎爬取站点。
+  - jekyll-spaceship # 增强 Jekyll 的 Markdown 渲染能力
+  # - jekyll-remote-theme #加载远程主题（GitHub 上的主题仓库）。必要性：必要，仅在使用 remote_theme 时安装
+
 
 
 # 主题特定设置
@@ -62,11 +68,10 @@ header_pages:
 #  - post: /all_posts/
 
 # 如果想在首页（index）显示摘要（show_excerpts），把下面这个设置为 true 。
-# gh展示页默认是show_excerpts: false
-show_excerpts: true
+show_excerpts: true # gh展示页默认是show_excerpts: false
 
 # Minima specific settings, which are only available from Minima 3.0 onward.
-# minima: # 原来在minima主题保持启用的，暂时关闭，updated in 24-11-20
+minima: # 原来在minima主题保持启用的，暂时关闭，updated in 24-11-20
   # Minima skin selection.
   # Available skins are:
   # classic	           Default, light color scheme.
@@ -75,13 +80,13 @@ show_excerpts: true
   # solarized-light	   Light variant of solarized color scheme.
   # solarized-dark	   Dark variant of solarized color scheme.
   # solarized	         Adaptive skin for solarized color scheme skins.
-  # skin: auto # 原来在minima主题保持启用的，暂时关闭，updated in 24-11-20
+  skin: auto # 原来在minima主题保持启用的，暂时关闭，updated in 24-11-20
 
 # Yat date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
 # 原来在minima主题是没有的，暂时开启看看，updated in 24-11-20
-yat:
-  date_format: "%d %b %Y" # updated in 24-11-20
+# yat:
+#   date_format: "%d %b %Y" # updated in 24-11-20
 
 # 排除项
 exclude: 
@@ -94,12 +99,9 @@ exclude:
   - vendor/ruby
   - minima
   - jekyll-theme-yat
-  - minima/_posts
-  - jekyll-theme-yat/_posts
 
 
 
 # 2024-11-12 研究category的事情
-# if you want your post links to be /category/title/ or /tag/title/ 
-# then you can do that in _config.yml file by using this line
+# if you want your post links to be /category/title/ or /tag/title/ then you can do that in _config.yml file by using this line
 permalink: /:categories/:title/

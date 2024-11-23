@@ -1,9 +1,9 @@
 ---
-# layout: page （minima主题时期的
-layout: about # 换成Jeffrey的主题也许要改动的，update in 24-11-20
+layout: page #minima主题时期的
+# layout: about # 换成Jeffrey的主题也许要改动的，update in 24-11-20
 title: 🪭 关于
 permalink: /about/
-sidebar: []
+# sidebar: []
 ---
 <style>
 .post-title {display: none;}
