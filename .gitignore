@@ -51,7 +51,7 @@ vendor/
 #本地的minima theme主题内容文件夹（3.0或更新版本的minima）
 minima/
 # 新增的本地jakyll-theme-yat主题，把它ignore，undated in 24-11-21
-jekyll-theme-yat/ 
+# jekyll-theme-yat/
 
 # Gems
 *.gem
