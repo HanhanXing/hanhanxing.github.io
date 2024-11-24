@@ -13,7 +13,7 @@ on:
 ###    4 将静态文件部署到 gh-pages 分支。
 
 jobs:
-  build_and_deploy: #起名为‘构建和部署’
+  build: #起名为‘构建’
     runs-on: ubuntu-latest
 
     steps:
@@ -44,40 +44,28 @@ jobs:
       - name: Build Jekyll site
         run: bundle exec jekyll build
           
-      # Step 5: 部署到gh-pages
+      # Step 5: 上传构建的内容作为工件
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: _site
+  
+  deploy: 
+    # 部署工作流需要在构建成功后运行
+    needs: build # Add a dependency to the build job
+    runs-on: ubuntu-latest # Specify runner
+
+    permissions: # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+      pages: write  # 允许写入权限以进行 GitHub Pages 部署
+      id-token: write  # 用于身份验证
+    
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    steps:
+      # Step 6: 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
-        run: |
-          # 设置 Git 用户信息（用于提交）
-          git config --global user.email "zhenhanxing@gmail.com"
-          git config --global user.name "HanhanXing"
-
-          # 创建一个临时目录用于保存构建内容
-          mkdir ../temp_gh_pages
-          cp -r _site/* ../temp_gh_pages/
-
-          # 切换到 gh-pages 分支，如果不存在则创建它
-          git fetch origin
-          if [ `git branch --list gh-pages` ]; then
-            git checkout gh-pages
-          else
-            git checkout --orphan gh-pages
-          fi
-
-          # 清空 gh-pages 分支中的所有内容
-          rm -rf *
-
-          # 将构建的内容从临时目录复制到当前目录
-          cp -r ../temp_gh_pages/* .
-
-          # 添加所有文件到 Git 暂存区
-          git add -A
-
-          # 提交更改
-          git commit -m "Deploy static site to GitHub Pages"
-
-          # 推送到远程 gh-pages 分支，使用强制推送以覆盖旧内容
-          git push -f https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git gh-pages
-
-      # Step 6: 切换回 main 分支（清理环境）
-      - name: Cleanup
-        run: git checkout main
+        id: deployment
+        uses: actions/deploy-pages@v4
