@@ -1,6 +1,6 @@
 ---
-layout: page #minima主题时期的
-#layout: categories # 换成Jeffrey的主题也许要改动的，update in 24-11-20
+#layout: page #minima主题时期的
+layout: categories # 换成Jeffrey的主题也许要改动的，update in 24-11-20
 title: 🛒 分类
 permalink: /categories/
 ---
