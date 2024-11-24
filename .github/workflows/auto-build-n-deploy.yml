@@ -60,9 +60,9 @@ jobs:
       id-token: write  # 用于身份验证
     
     # Deploy to the github-pages environment
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # environment:
+      #name: github-pages
+      #url: ${{ steps.deployment.outputs.page_url }}
       
     steps:
       # Step 6: 部署到 GitHub Pages
