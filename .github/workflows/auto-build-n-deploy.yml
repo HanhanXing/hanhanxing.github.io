@@ -76,7 +76,7 @@ jobs:
           git commit -m "Deploy static site to GitHub Pages"
 
           # 推送到远程 gh-pages 分支，使用强制推送以覆盖旧内容
-          git push -f origin gh-pages
+          git push -f https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git gh-pages
 
       # Step 6: 切换回 main 分支（清理环境）
       - name: Cleanup
