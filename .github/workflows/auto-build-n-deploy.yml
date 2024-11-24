@@ -46,10 +46,19 @@ jobs:
           
       # Step 5: 上传构建的内容作为工件
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: _site/
           name: github-pages #新增，给built好的工件命名？
+      
+      # Step 5.1: 追踪构建状态，检查上传工件的细节
+      - name: Check Build Status
+        run: |
+          echo "Build完成 and artifact upload 完成."
+          echo "Listing _site directory contents:"
+          ls -l _site
+          echo "Checking GitHub Actions artifact directory:"
+          ls -lR ${{ github.workspace }}
   
   deploy: 
     # 部署工作流需要在构建成功后运行
@@ -61,9 +70,9 @@ jobs:
       id-token: write  # 用于身份验证
     
     # Deploy to the github-pages environment
-    # environment:
-      #name: github-pages
-      #url: ${{ steps.deployment.outputs.page_url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
       
     steps:
       # Step 6: 部署到 GitHub Pages
