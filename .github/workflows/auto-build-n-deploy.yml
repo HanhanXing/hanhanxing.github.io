@@ -49,7 +49,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: _site
-          name: my-Pages #新增，给built好的工件命名？
+          name: github-pages #新增，给built好的工件命名？
   
   deploy: 
     # 部署工作流需要在构建成功后运行
