@@ -46,7 +46,9 @@ jobs:
           
       # Step 5: 部署到gh-pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+        run: |
+          git config --global user.email "zhenhanxing@gmail.com"
+          git config --global user.name "HanhanXing"
+          git add -A
+          git commit -m "Deploy static site to GitHub Pages"
+          git push origin main
