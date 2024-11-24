@@ -47,9 +47,37 @@ jobs:
       # Step 5: 部署到gh-pages
       - name: Deploy to GitHub Pages
         run: |
-          git config --global user.email "zhenhanxing@gmail.com"  # 设置全局 Git 提交邮箱
-          git config --global user.name "HanhanXing"             # 设置全局 Git 提交用户名
-          git init                                               # 初始化一个新的 Git 仓库
-          git add -A                                              # 将所有文件添加到 Git 暂存区
-          git commit -m "Deploy static site to GitHub Pages"      # 提交更改并设置提交信息
-          git push origin main
+          # 设置 Git 用户信息（用于提交）
+          git config --global user.email "zhenhanxing@gmail.com"
+          git config --global user.name "HanhanXing"
+
+          # 创建一个临时目录用于保存构建内容
+          mkdir ../temp_gh_pages
+          cp -r _site/* ../temp_gh_pages/
+
+          # 切换到 gh-pages 分支，如果不存在则创建它
+          git fetch origin
+          if [ `git branch --list gh-pages` ]; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages
+          fi
+
+          # 清空 gh-pages 分支中的所有内容
+          rm -rf *
+
+          # 将构建的内容从临时目录复制到当前目录
+          cp -r ../temp_gh_pages/* .
+
+          # 添加所有文件到 Git 暂存区
+          git add -A
+
+          # 提交更改
+          git commit -m "Deploy static site to GitHub Pages"
+
+          # 推送到远程 gh-pages 分支，使用强制推送以覆盖旧内容
+          git push -f origin gh-pages
+
+      # Step 6: 切换回 main 分支（清理环境）
+      - name: Cleanup
+        run: git checkout main
