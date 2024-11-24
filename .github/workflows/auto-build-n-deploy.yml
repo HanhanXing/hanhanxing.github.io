@@ -47,8 +47,9 @@ jobs:
       # Step 5: 部署到gh-pages
       - name: Deploy to GitHub Pages
         run: |
-          git config --global user.email "zhenhanxing@gmail.com"
-          git config --global user.name "HanhanXing"
-          git add -A
-          git commit -m "Deploy static site to GitHub Pages"
-          git push origin gh-pages
+          git config --global user.email "zhenhanxing@gmail.com"  # 设置全局 Git 提交邮箱
+          git config --global user.name "HanhanXing"             # 设置全局 Git 提交用户名
+          git init                                               # 初始化一个新的 Git 仓库
+          git add -A                                              # 将所有文件添加到 Git 暂存区
+          git commit -m "Deploy static site to GitHub Pages"      # 提交更改并设置提交信息
+          git push origin main
