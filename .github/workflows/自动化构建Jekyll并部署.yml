@@ -1,0 +1,50 @@
+name: Auto-Building Jekyll and deploying to GitHub Pages
+
+#  触发器：在代码 push 到主分支时运行。
+on:
+  push:
+    branches:
+      - main  # 当'main'分支有变化时触发, can also be other branch e.g.'master'
+
+###  任务（大致可拆分为）：
+###    1 安装 Jekyll 及其依赖。
+###    2 构建静态文件。
+###    3 将静态文件部署到 gh-pages 分支。
+
+jobs: #任务/待办工作
+  build: #起名为‘构建’
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      # Step 1: 检出代码（将仓库的源代码拉取到运行器环境中）
+      - name: Checkout Code 
+        uses: actions/checkout@v4
+    
+      # Step 2: 配置Ruby环境（随便指定一个3.2.4吧跟本地环境一致）
+      - name: Setup Ryby -to match local env
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2.4' 
+          # bundler-cache: true
+          # 运行 "bundle install "并自动缓存已安装的 gem
+      
+      # Step 3: 抓取依赖, Use GitHub Actions' cache to cache dependencies on servers
+      - name: Cache Dependencies
+        uses: actions/cache@v4
+        with:
+            path: vendor/bundle
+            key: ${{ runner.os }}-gemfile-${{ hashFiles('**/Gemfile.lock') }}
+            restore-keys: |
+              ${{ runner.os }}-gemfile-
+              
+      # Step 4: 构建Jekyll 网站（结果似乎是缓存在_site目录的静态文件）
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+          
+      # Step 5: 部署到gh-pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
