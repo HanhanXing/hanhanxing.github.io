@@ -2,13 +2,12 @@
 title: 🧀 汗汗的芝士库
 # email: ??
 # 作者信息（可选）
-author:
-  name: NPC毁灭者
-  email: zhenhanxing@outlook.com
+author: NPC毁灭者
+email: zhenhanxing@outlook.com
 # 版权信息（瞎写）updated in 24-11-20
-copyright: Copyright © 2024-2034
+copyright: Copyright © 2023-2024
 
-description: >
+description: >-
   This is Hanhan's knowledgebase, a blog built with Jekyll. 
   Keeps notes of learning, experience & books. 
   Private use only ⚠️ , contain high-entropy information, thus cannot be held responsible for any information on the site. 
@@ -16,18 +15,6 @@ description: >
 # 设置你的博客在 GitHub Pages 上的子路径，如果有的话
 url: "https://hanhanxing.github.io/" # 你的 GitHub Pages 网址
 # baseurl: "" # the subpath of your site, e.g. /blog ，updated in 24-11-20
-# favicon: "/favicon.png" # the favicon for your site，updated in 24-11-20
-
-
-# 主题
-
-# 如果直接克隆官方Minima 仓库到本地来构建的，就直接用这个方法
-# theme: minima
-# 如果不克隆minima仓库到本地，但还希望在 GitHub Pages 上使用最新版本的 Minima，请使用以下设置
-#（备注：其实无论本地minima版本新旧，gh pages都会强制使用特定版本的minima，所以remote_theme这玩意可能没什么意义）
-remote_theme: jeffreytse/jekyll-theme-yat # 原来的主题是 jekyll/minima 
-# theme: jekyll-theme-yat
-# remote_theme: null
 
 
 # Markdown 配置
@@ -47,28 +34,30 @@ plugins:
   - jekyll-remote-theme #加载远程主题（GitHub 上的主题仓库）。必要性：必要，仅在使用 remote_theme 时安装
 
 
+# 排除项
+exclude: 
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle
+  - vendor/cache
+  - vendor/gems
+  - vendor/ruby
+  - minima
+  - jekyll-theme-yat
 
-# 主题特定设置
 
-# 页眉
-# 如果想在页眉（header）中链接特定页面（specific pages） use this and add the path to the pages
-# 它们会按照书写的顺序显示
-header_pages:
-  - all_posts.md
-  - categories.md
-  - about.md
-  
-  
 
-# 导航栏
-# 布局配置（可选）
-#nav: 
-#  - home: /
-#  - about: /about/
-#  - post: /all_posts/
+# 主题以及其相关的设置
 
-# 如果想在首页（index）显示摘要（show_excerpts），把下面这个设置为 true 。
-show_excerpts: true # gh展示页默认是show_excerpts: false
+# 如果直接克隆官方Minima 仓库到本地来构建的，就直接用这个方法
+# theme: minima
+# 如果不克隆minima仓库到本地，但还希望在 GitHub Pages 上使用最新版本的 Minima，请使用以下设置
+#（备注：其实无论本地minima版本新旧，gh pages都会强制使用特定版本的minima，所以remote_theme这玩意可能没什么意义）
+remote_theme: jeffreytse/jekyll-theme-yat # 原来的主题是 jekyll/minima 
+# theme: jekyll-theme-yat
+# remote_theme: null
+
 
 # Minima specific settings, which are only available from Minima 3.0 onward.
 #minima: # 原来在minima主题保持启用的，暂时关闭，updated in 24-11-20
@@ -88,20 +77,38 @@ show_excerpts: true # gh展示页默认是show_excerpts: false
 yat:
   date_format: "%d %b %Y" # updated in 24-11-20
 
-# 排除项
-exclude: 
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle
-  - vendor/cache
-  - vendor/gems
-  - vendor/ruby
-  - minima
-  - jekyll-theme-yat
 
+# 页面布局
 
+# 页眉
+# 如果想在页眉（header）中链接特定页面（specific pages） use this and add the path to the pages
+# 它们会按照书写的顺序显示
+header_pages:
+  - index.md
+  - all_posts.md
+  - categories.md
+  - about.md
 
-# 2024-11-12 研究category的事情
+# 导航栏
+# 布局配置（可选）
+#nav: 
+#  - home: /
+#  - about: /about/
+#  - post: /all_posts/
+
+# 显示摘要
+# 如果想在首页（index）显示摘要（show_excerpts），把下面这个设置为 true 。
+show_excerpts: true # gh展示页默认是show_excerpts: false
+
+# 使用category打标签和分类 2024-11-12
 # if you want your post links to be /category/title/ or /tag/title/ then you can do that in _config.yml file by using this line
 permalink: /:categories/:title/
+
+# 使用头像icon，新主题yat的特定功能，2024-11-23
+favicon: "/img_assets/profile_icon.png"
+
+# Pagination setting
+paginate: 10
+
+# If you want to generate website sitemap, you can set true
+sitemap: true
